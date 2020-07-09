@@ -18,6 +18,18 @@ static inline void set_string(gchar** strings, int n, gchar* str) {
 
 static inline gchar** next_gcharptr(gchar** s) { return (s+1); }
 
+static const gchar *
+object_get_class_name(GObject *object)
+{
+	return G_OBJECT_CLASS_NAME(G_OBJECT_GET_CLASS(object));
+}
+
+static GObject *
+toGObject(void *p)
+{
+	return (G_OBJECT(p));
+}
+
 static GtkTextView *
 toGtkTextView(void *p)
 {
@@ -40,6 +52,36 @@ static GtkSourceBuffer *
 toGtkSourceBuffer(void *p)
 {
 	return (GTK_SOURCE_BUFFER(p));
+}
+
+static GtkSourceCompletion *
+toGtkSourceCompletion(void *p)
+{
+	return (GTK_SOURCE_COMPLETION(p));
+}
+
+static GtkSourceCompletionContext *
+toGtkSourceCompletionContext(void *p)
+{
+	return (GTK_SOURCE_COMPLETION_CONTEXT(p));
+}
+
+static GtkSourceCompletionInfo *
+toGtkSourceCompletionInfo(void *p)
+{
+	return (GTK_SOURCE_COMPLETION_INFO(p));
+}
+
+static GtkSourceCompletionProposal *
+toGtkSourceCompletionProposal(void *p)
+{
+	return (GTK_SOURCE_COMPLETION_PROPOSAL(p));
+}
+
+static GtkSourceCompletionProvider *
+toGtkSourceCompletionProvider(void *p)
+{
+	return (GTK_SOURCE_COMPLETION_PROVIDER(p));
 }
 
 static GtkSourceGutter *
